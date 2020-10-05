@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thank You</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f1faee;">
+  <header class="navbar navbar-light bg-primary shadow-lg">
+    <h1 class="text-light">Job Searcher</h1>
+  </header>
+  <br>
+<h2 class="text-center">Results</h2>
+<br>
+{% for job in jobs %}
+  {% if job.taken_from  == "Monster" %}
+    <div class="card" style="background:#457b9d">
+  {% elif job.taken_from  == "Reed" %}
+    <div class="card" style="background:#e63946">
+  {% elif job.taken_from  == "Total" %}
+    <div class="card" style="background:#a8dadc">
+  {% else %}
+    <div class="card">
+  {% endif %}
+  <a target="blank" style="text-decoration:none;color:black;" href="{{ job.link }}"><h1>{{ job.title }}</h1></a>
+  <h3>{{ job.posted_by }}</h3>
+  <h6>{{ job.taken_from }}</h6>
+</div>
+{% endfor %}
+</div>
+<a href="">HOME</a>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
